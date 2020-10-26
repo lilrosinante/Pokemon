@@ -13,7 +13,7 @@ public class Trainer {
     private Inventory inv;
     private Pokedex dex;
 
-    public void Trainer(){
+    public void Trainer() {
 
         inv = new Inventory();
         dex = new Pokedex();
@@ -22,37 +22,76 @@ public class Trainer {
         inv.setFoodAmount(10);
         inv.setBerriesAmount(20);
 
-        System.out.println("Hello trainer. Welcome to the Pokémon Game from Boolean AG");
+        System.out.println("Hello trainer. Welcome to the Pokemon Game from Boolean AG");
         System.out.println("----------------------------------------------------------");
         System.out.print("\nEnter your username: ");
         username = scan.next();
 
         System.out.println("Hey " + username + ", what a great username!");
-        System.out.println("Choose your starter pokémon: " +
-                           "1. Bisasam");
+        chooseStarter(dex, team);
 
     }
 
-    public void changeUsername(){
+    private void chooseStarter(Pokedex dex, Team team) {
+
+        int pokemonNumber = 0;
+
+        System.out.println("Choose your starter pokemon:" +
+                           "1. Bisasam\n" +
+                           "2. Glumanda\n" +
+                           "3. Shiggy\n" +
+                           "Enter number of pokemon you'd like to have as a starter");
+        int choice = scan.nextInt();
+
+        if (choice > 0 && choice < 4) {
+            if (choice == 1) {
+                //7 is index of the pokemon Bisasam in the pokemonlist of Pokedex
+                pokemonNumber = 7;
+            } else if (choice == 2) {
+                //1 is index of Glumanda in the pokemonlist of Pokedex
+                pokemonNumber = 1;
+            } else if (choice == 3) {
+                //4 is index of Shiggy in the pokemonlist of Pokedex
+                pokemonNumber = 4;
+            }
+
+            pokemonNumber--;
+
+            team.addPokemon(new Pokemon(
+                    dex.getPokemonList().get(pokemonNumber).getId(), dex.getPokemonList().get(pokemonNumber).getName(),
+                    dex.getPokemonList().get(pokemonNumber).getType(), dex.getPokemonList().get(pokemonNumber).getHp(),
+                    dex.getPokemonList().get(pokemonNumber).getAtk(), dex.getPokemonList().get(pokemonNumber).getSpAtk(),
+                    dex.getPokemonList().get(pokemonNumber).getDef(), dex.getPokemonList().get(pokemonNumber).getSpDef(),
+                    dex.getPokemonList().get(pokemonNumber).getAttack1(), dex.getPokemonList().get(pokemonNumber).getAttack2(),
+                    true, true));
+
+            dex.getPokemonList().get(pokemonNumber--).setSeen(true);
+            dex.getPokemonList().get(pokemonNumber--).setCatched(true);
+        } else {
+            System.out.println("Something went wrong with the input.\nPlease choose a Number between 1 and 3");
+        }
+    }
+
+    public void changeUsername() {
         System.out.println("Old username: " + username);
         System.out.print("New username: ");
         String newUsername = scan.next();
-        if(!newUsername.equalsIgnoreCase(getUsername())){
+        if (!newUsername.equalsIgnoreCase(getUsername())) {
             setUsername(newUsername);
-        } else{
+        } else {
             System.out.println("Nothing has been changed. New username is equal to the old one.");
         }
     }
 
-    public void eatFood(){
+    public void eatFood() {
 
-        if(inv.getFoodAmount() > 0){
+        if (inv.getFoodAmount() > 0) {
 
             System.out.println("Your stamina has been refilled.");
-            inv.setFoodAmount(inv.getFoodAmount()-1);
+            inv.setFoodAmount(inv.getFoodAmount() - 1);
             stamina = 100;
 
-        } else{
+        } else {
             System.out.println("You're out of food.");
         }
 
@@ -90,11 +129,19 @@ public class Trainer {
         this.inv = inv;
     }
 
-    public Pokedex getDex() { return dex; }
+    public Pokedex getDex() {
+        return dex;
+    }
 
-    public void setDex(Pokedex dex) { this.dex = dex; }
+    public void setDex(Pokedex dex) {
+        this.dex = dex;
+    }
 
-    public Team getTeam() { return team; }
+    public Team getTeam() {
+        return team;
+    }
 
-    public void setTeam(Team team) { this.team = team; }
+    public void setTeam(Team team) {
+        this.team = team;
+    }
 }
