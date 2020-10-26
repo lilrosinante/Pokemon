@@ -1,11 +1,11 @@
-package Boolean_AG;
+package Boolean_AG.Pokemon;
 
 import java.util.Scanner;
 
 public class Trainer {
 
     //attributes
-    Scanner scan = new Scanner(System.in);
+    private Scanner scan = new Scanner(System.in);
     private String username;
     private int level = 1;
     private int stamina = 100;
@@ -13,10 +13,12 @@ public class Trainer {
     private Inventory inv;
     private Pokedex dex;
 
-    public void Trainer() {
+    //constructor
+    public Trainer() {
 
         inv = new Inventory();
         dex = new Pokedex();
+        team = new Team();
 
         inv.setPokeballAmount(100);
         inv.setFoodAmount(10);
@@ -32,11 +34,12 @@ public class Trainer {
 
     }
 
+    /**Methods**/
     private void chooseStarter(Pokedex dex, Team team) {
 
         int pokemonNumber = 0;
 
-        System.out.println("Choose your starter pokemon:" +
+        System.out.println("Choose your starter pokemon:\n" +
                            "1. Bisasam\n" +
                            "2. Glumanda\n" +
                            "3. Shiggy\n" +
@@ -65,17 +68,24 @@ public class Trainer {
                     dex.getPokemonList().get(pokemonNumber).getAttack1(), dex.getPokemonList().get(pokemonNumber).getAttack2(),
                     true, true));
 
-            dex.getPokemonList().get(pokemonNumber--).setSeen(true);
-            dex.getPokemonList().get(pokemonNumber--).setCatched(true);
+            dex.getPokemonList().get(pokemonNumber).setSeen(true);
+            dex.getPokemonList().get(pokemonNumber).setCatched(true);
         } else {
             System.out.println("Something went wrong with the input.\nPlease choose a Number between 1 and 3");
         }
     }
 
-    public void changeUsername() {
-        System.out.println("Old username: " + username);
-        System.out.print("New username: ");
-        String newUsername = scan.next();
+    public void viewTrainerStats(){
+        System.out.println("\nTrainer Informations\n" +
+                           "-------------------------\n" +
+                           "Username: " + username +
+                           "\nLevel: " + level +
+                           "\nStamina: " + stamina +
+                           "\nTeam size: " + team.getMyPokemon().size());
+    }
+
+    public void changeUsername(String newUsername) {
+
         if (!newUsername.equalsIgnoreCase(getUsername())) {
             setUsername(newUsername);
         } else {
@@ -97,6 +107,7 @@ public class Trainer {
 
     }
 
+    //getters & setters
     public String getUsername() {
         return username;
     }
@@ -105,13 +116,7 @@ public class Trainer {
         this.username = username;
     }
 
-    public int getLevel() {
-        return level;
-    }
-
-    public void setLevel(int level) {
-        this.level = level;
-    }
+    public int getLevel() { return level; }
 
     public int getStamina() {
         return stamina;
@@ -125,23 +130,12 @@ public class Trainer {
         return inv;
     }
 
-    public void setInv(Inventory inv) {
-        this.inv = inv;
-    }
-
     public Pokedex getDex() {
         return dex;
-    }
-
-    public void setDex(Pokedex dex) {
-        this.dex = dex;
     }
 
     public Team getTeam() {
         return team;
     }
 
-    public void setTeam(Team team) {
-        this.team = team;
-    }
 }

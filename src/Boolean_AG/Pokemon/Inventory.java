@@ -1,4 +1,4 @@
-package Boolean_AG;
+package Boolean_AG.Pokemon;
 
 public class Inventory {
 
@@ -7,14 +7,16 @@ public class Inventory {
     private int berriesAmount;
     private int foodAmount;
 
+    /**Methods**/
     public void viewInventory() {
         System.out.println("\nYour Inventory\n" +
-                "-----------------------------" +
+                "-----------------------------\n" +
                 "Pokéballs: " + getPokeballAmount() + "\n" +
                 "Beeries: " + getBerriesAmount() + "\n" +
                 "Food: " + getFoodAmount());
     }
 
+    //getters & setters
     public void setPokeballAmount(int pokeballAmount) { this.pokeballAmount = pokeballAmount; }
 
     public void setBerriesAmount(int berriesAmount) {

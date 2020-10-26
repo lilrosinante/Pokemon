@@ -1,4 +1,4 @@
-package Boolean_AG;
+package Boolean_AG.Pokemon;
 
 public class Starter {
 
