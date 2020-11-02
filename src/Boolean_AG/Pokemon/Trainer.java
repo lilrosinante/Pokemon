@@ -116,7 +116,11 @@ public class Trainer {
      */
     public void eatFood() {
 
-        if (inv.getFoodAmount() > 0) {
+        if(stamina == 100){
+
+            System.out.println("Your stamina is full.");
+
+        } else if (inv.getFoodAmount() > 0) {
 
             System.out.println("Your stamina has been refilled.");
             inv.setFoodAmount(inv.getFoodAmount() - 1);

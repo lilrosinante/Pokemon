@@ -4,14 +4,16 @@ import java.util.Scanner;
 
 public class GameController {
 
+    //attributes
+    private Trainer player = new Trainer();
+    private Battle battle = new Battle();
+
     /**
      * Starts the whole Game.
      * Calls methods depending on user input.
      */
     public void start(){
 
-        Trainer player = new Trainer();
-        Battle battle = new Battle();
         Scanner scan = new Scanner(System.in);
         String decision;
 

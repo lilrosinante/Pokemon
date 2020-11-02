@@ -12,7 +12,9 @@ public class TrainerTest {
 
     @BeforeAll
     public void setUp(){
+
         player = new Trainer();
+        player.setUsername("Peter");
     }
 
     @Test
