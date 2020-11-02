@@ -2,6 +2,9 @@ package Boolean_AG.Pokemon;
 
 import Boolean_AG.API.Type;
 
+/**
+ * Class with constructor, attributes, getters and setters for {@link Attack}-POJO.
+ */
 public class Attack {
 
     //attributes

@@ -2,6 +2,9 @@ package Boolean_AG.Pokemon;
 
 import Boolean_AG.API.Type;
 
+/**
+ * Class with attributes, constructor, getters and setters for {@link Pokemon}-POJO.
+ */
 public class Pokemon {
 
     //attributes

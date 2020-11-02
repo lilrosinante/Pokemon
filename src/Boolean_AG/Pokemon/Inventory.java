@@ -1,5 +1,8 @@
 package Boolean_AG.Pokemon;
 
+/**
+ * Class with attributes, constructor, getters and setters for {@link Inventory}-POJO.
+ */
 public class Inventory {
 
     //attributes
@@ -7,7 +10,9 @@ public class Inventory {
     private int berriesAmount;
     private int foodAmount;
 
-    /**Methods**/
+    /**
+     * Shows all items which the trainer possesses and their amount.
+     */
     public void viewInventory() {
         System.out.println("\nYour Inventory\n" +
                 "-----------------------------\n" +

@@ -2,6 +2,9 @@ package Boolean_AG.Pokemon;
 
 import java.util.Scanner;
 
+/**
+ * Class with attributes, methods, constructor, getters and setters for {@link Inventory}-POJO.
+ */
 public class Trainer {
 
     //attributes
@@ -34,7 +37,13 @@ public class Trainer {
 
     }
 
-    /**Methods**/
+    /**
+     * Lets the Trainer choose his first Pokemon.
+     * The player can't play the game without at least 1 Pokemon.
+     *
+     * @param dex
+     * @param team
+     */
     private void chooseStarter(Pokedex dex, Team team) {
 
         int pokemonNumber = 0;
@@ -75,6 +84,9 @@ public class Trainer {
         }
     }
 
+    /**
+     * Displays all necessary information (Attributes) about the trainer.
+     */
     public void viewTrainerStats(){
         System.out.println("\nTrainer Informations\n" +
                            "-------------------------\n" +
@@ -84,6 +96,11 @@ public class Trainer {
                            "\nTeam size: " + team.getMyPokemon().size());
     }
 
+    /**
+     * Lets the user change his username.
+     *
+     * @param newUsername
+     */
     public void changeUsername(String newUsername) {
 
         if (!newUsername.equalsIgnoreCase(getUsername())) {
@@ -93,6 +110,10 @@ public class Trainer {
         }
     }
 
+    /**
+     * Fills up the Trainers stamina.
+     * The Trainer needs stamina to be able to battle.
+     */
     public void eatFood() {
 
         if (inv.getFoodAmount() > 0) {

@@ -4,7 +4,10 @@ import java.util.Scanner;
 
 public class GameController {
 
-    /**Methods**/
+    /**
+     * Starts the whole Game.
+     * Calls methods depending on user input.
+     */
     public void start(){
 
         Trainer player = new Trainer();
@@ -68,12 +71,15 @@ public class GameController {
 
     }
 
+    /**
+     * Prints interface for User with all possible options.
+     */
     public void printUI(){
         System.out.println("\n----------------------\n" +
                            "| T | Trainer Stats  |\n" +
                            "| V | View Pokémons  |\n" +
                            "| P | Open Pokédex   |\n" +
-                           "| I | Open Inventar  |\n" +
+                           "| I | Open Inventory |\n" +
                            "| B | Battle         |\n" +
                            "| E | Eat Food       |\n" +
                            "| C | Change Username|\n" +

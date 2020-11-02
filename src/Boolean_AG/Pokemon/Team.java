@@ -2,12 +2,18 @@ package Boolean_AG.Pokemon;
 
 import java.util.ArrayList;
 
+/**
+ * Team class, managing all required methods for the Trainer's team.
+ */
 public class Team {
 
     //attributes
     private ArrayList<Pokemon> myPokemon = new ArrayList<Pokemon>();
 
-    /**Methods**/
+    /**
+     *
+     * Displays all Pokemon the Trainer has captured.
+     */
     public void viewTeam() {
         System.out.println("______________________________");
         System.out.println("Your Pokemon: ");
