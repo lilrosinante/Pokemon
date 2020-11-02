@@ -137,8 +137,6 @@ public class Trainer {
         this.username = username;
     }
 
-    public int getLevel() { return level; }
-
     public int getStamina() {
         return stamina;
     }

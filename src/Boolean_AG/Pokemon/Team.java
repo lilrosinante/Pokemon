@@ -23,6 +23,11 @@ public class Team {
     }
 
     //getters & setters
+
+    /**
+     *
+     * @return {@link ArrayList} of type Pokemon.
+     */
     public ArrayList<Pokemon> getTeamList() {
         return myPokemon;
     }
