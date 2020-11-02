@@ -10,6 +10,7 @@ public class Starter {
 
         GameController start = new GameController();
         start.start();
+        System.out.println();
 
     }
 
