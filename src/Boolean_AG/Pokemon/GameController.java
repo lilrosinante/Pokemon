@@ -1,22 +1,31 @@
-package Boolean_AG;
+package Boolean_AG.Pokemon;
 
 import java.util.Scanner;
 
 public class GameController {
 
+    /**
+     * Starts the whole Game.
+     * Calls methods depending on user input.
+     */
     public void start(){
 
         Trainer player = new Trainer();
         Battle battle = new Battle();
         Scanner scan = new Scanner(System.in);
-        String decision = null;
+        String decision;
 
         do{
             printUI();
-            System.out.print("What would you like to do?: ");
+            System.out.print(player.getUsername() + " what would you like to do?: ");
             decision = scan.next();
 
             switch(decision){
+
+                case "T":
+                    player.viewTrainerStats();
+                    break;
+
                 case "V":
                     player.getTeam().viewTeam();
                     break;
@@ -30,7 +39,7 @@ public class GameController {
                     break;
 
                 case "B":
-                    if(player.getInv().getFoodAmount() > 0) {
+                    if(player.getStamina() > 0) {
                         battle.battle(player);
                     } else {
                         System.out.println("You need more stamina to fight another battle.\nEat some food to gain stamina.");
@@ -42,7 +51,10 @@ public class GameController {
                     break;
 
                 case "C":
-                    player.changeUsername();
+                    System.out.println("Old username: " + player.getUsername());
+                    System.out.print("New username: ");
+                    String newUsername = scan.next();
+                    player.changeUsername(newUsername);
                     break;
 
                 case "Q":
@@ -59,11 +71,15 @@ public class GameController {
 
     }
 
+    /**
+     * Prints interface for User with all possible options.
+     */
     public void printUI(){
-        System.out.println("----------------------\n" +
+        System.out.println("\n----------------------\n" +
+                           "| T | Trainer Stats  |\n" +
                            "| V | View Pokémons  |\n" +
                            "| P | Open Pokédex   |\n" +
-                           "| I | Open Inventar  |\n" +
+                           "| I | Open Inventory |\n" +
                            "| B | Battle         |\n" +
                            "| E | Eat Food       |\n" +
                            "| C | Change Username|\n" +
