@@ -37,6 +37,7 @@ public class Trainer {
 
     }
 
+
     /**
      * Lets the Trainer choose his first Pokemon.
      * The player can't play the game without at least 1 Pokemon.

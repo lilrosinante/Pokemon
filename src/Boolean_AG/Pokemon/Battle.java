@@ -445,16 +445,15 @@ public class Battle {
      */
     private void printBattleUI() {
 
-        System.out.println("________________________________");
-        System.out.println("|                              |");
-        System.out.println("| Attack          [1]          |");
-        System.out.println("|                              |");
-        System.out.println("| Heal Pokemon    [2]          |");
-        System.out.println("|                              |");
-        System.out.println("| View Stats      [3]          |");
-        System.out.println("|                              |");
-        System.out.println("| Capture Pokemon [4]          |");
-        System.out.println("|______________________________|");
+        System.out.println("╔══════════════════════════════╗");
+        System.out.println("║ Attack Enemy    [1]          ║");
+        System.out.println("║                              ║");
+        System.out.println("║ Heal Pokemon    [2]          ║");
+        System.out.println("║                              ║");
+        System.out.println("║ View Stats      [3]          ║");
+        System.out.println("║                              ║");
+        System.out.println("║ Capture Pokemon [4]          ║");
+        System.out.println("╚══════════════════════════════╝");
         System.out.println("What would you like to do?: ");
 
     }
